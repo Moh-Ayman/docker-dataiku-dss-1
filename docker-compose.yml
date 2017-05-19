@@ -1,0 +1,17 @@
+version: '2'
+services:
+    dataiku:
+#      image: dataiku/dss
+      image: jbfavre/dataiku-dss
+      container_name: dataiku
+      hostname: "Dataiku-DSS"
+      volumes:
+       - ./dss:/var/lib/dataiku
+      ports:
+       - "10000:10000"
+      restart: always
+      tty: true
+      stdin_open: true
+      privileged: true
+#sudo docker run -p 10000:10000 -v MYDIR:/home/dataiku/dss -d dataiku/dss
+#COMMAND /home/dataiku/run.sh
